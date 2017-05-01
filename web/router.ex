@@ -23,7 +23,7 @@ defmodule Chatter.Router do
 
   scope "/", Chatter do
     pipe_through :browser # Use the default browser stack
-    resources "/users", UserController, [:new, :create]
+    resources "/users", UserController, only: [:new, :create]
     resources "/sessions", SessionController, only: [:create, :delete]
     get "/", SessionController, :new
   end
